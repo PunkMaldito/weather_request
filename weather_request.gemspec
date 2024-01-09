@@ -8,5 +8,6 @@ Gem::Specification.new do |s|
   s.files       = ["lib/weather_request.rb"]
   s.license     = "MIT"
 
+  s.add_development_dependency('webmock', '~> 3.19', '>= 3.19.1')
   s.add_runtime_dependency('json', '~> 2.7', '>= 2.7.1')
 end
