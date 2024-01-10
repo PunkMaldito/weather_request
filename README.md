@@ -1,6 +1,6 @@
 # Weather Request
 
-A simple request library for weather information from the current and the next 5 days, requesting from the Weather API.
+A simple request library for weather information from the current and the next 5 days, requesting from the [Weather API](https://weatherapi.com).
 
 
 ## Install
