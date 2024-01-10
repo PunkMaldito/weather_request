@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = "weather_request"
-  s.version     = "0.0.0"
+  s.version     = "0.1.0"
   s.summary     = "Weather Request"
   s.description = "A simple request library for weather info for the current and the next 5 days."
   s.authors     = ["Rafael Porto"]
