@@ -17,14 +17,14 @@ class WeatherRequest
   def clean_response(parsed_json)
     {}.tap do |hash|
       hash[:city] = parsed_json['location']['name']
-      hash[:current] = { date: Date.today.strftime("%Y-%m-%d"),
-                         temperature: parsed_json['current']['temp_c'],
-                         condition: parsed_json['current']['condition']['text'] }
+      hash[:current] = { date: Date.today.strftime("%d/%m"),
+                         temperature: parsed_json['current']['temp_c'].to_s.gsub('.', ','),
+                         condition: parsed_json['current']['condition']['text'].downcase }
       hash[:forecast] = []
 
       parsed_json['forecast']['forecastday'].drop(1).each do |forecastday|
-        hash[:forecast] << { date: forecastday['date'],
-                             temperature: forecastday['day']['avgtemp_c'] }
+        hash[:forecast] << { date: Date.parse(forecastday['date']).strftime("%d/%m"),
+                             temperature: forecastday['day']['avgtemp_c'].to_s.gsub('.', ',') }
       end
     end
   end

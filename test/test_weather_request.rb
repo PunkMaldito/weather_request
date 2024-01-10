@@ -7,16 +7,16 @@ class TestWeatherRequest < Minitest::Test
     stub_request(:get, WeatherRequest::API_BASE_URL+"&key=1&q=Campo Grande")
       .to_return(status: 200, body: response, headers: { 'Content-Type' => 'application/json' })
 
-    res = WeatherRequest.new.get(api_key: 1, query: 'Campo Grande')
-    assert_equal(method_response, res)
+    result = WeatherRequest.new.get(api_key: 1, query: 'Campo Grande')
+    assert_equal(method_response, result)
   end
 
   def test_failed_request
     stub_request(:get, WeatherRequest::API_BASE_URL+"&key=1&q=Campo Grande")
       .to_return(status: 401, body: [], headers: { 'Content-Type' => 'application/json' })
 
-    res = WeatherRequest.new.get(api_key: 1, query: 'Campo Grande')
-    assert_nil(res)
+    result = WeatherRequest.new.get(api_key: 1, query: 'Campo Grande')
+    assert_nil(result)
   end
 
   protected
@@ -79,16 +79,16 @@ class TestWeatherRequest < Minitest::Test
     {
       city: 'Campo Grande',
       current: {
-        date: '2024-01-09',
-        temperature: 33.0,
-        condition: 'Parcialmente nublado'
+        date: '09/01',
+        temperature: '33,0',
+        condition: 'parcialmente nublado'
       },
       forecast: [
-        { date: '2024-01-10', temperature: 30.4 },
-        { date: '2024-01-11', temperature: 28.4 },
-        { date: '2024-01-12', temperature: 26.8 },
-        { date: '2024-01-13', temperature: 26.9 },
-        { date: '2024-01-14', temperature: 27.2 }
+        { date: '10/01', temperature: '30,4' },
+        { date: '11/01', temperature: '28,4' },
+        { date: '12/01', temperature: '26,8' },
+        { date: '13/01', temperature: '26,9' },
+        { date: '14/01', temperature: '27,2' }
       ]
     }
   end
