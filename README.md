@@ -20,7 +20,7 @@ require 'weather_request'
 ```ruby
 WeatherRequest.new.get(api_key: <your-weather-api-key>, query: <city-name-or-geolocation>)
 ```
-That will return an object with this structure:
+That will return an hash with this structure:
 ```ruby
 {
   city: 'Campo Grande',
